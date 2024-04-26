@@ -1,4 +1,4 @@
-console.log('>> Ready :)');
+console.log('pages ready');
 
 const mainPage = document.querySelector('.js-page');
 const mainTitle = document.createElement('h1');
