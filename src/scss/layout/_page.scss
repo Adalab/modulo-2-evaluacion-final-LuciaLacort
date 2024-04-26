@@ -1,3 +1,5 @@
+//Para no perderme en la anidación, voy a meter las clases para dar estilos según las voy creando con set atribute y las dejo comentadas. Así si las necesito luego no las tengo que volver a buscar.
+
 .main__page{
     background-color: aqua;
     &--title{
@@ -10,3 +12,40 @@
 
     // }
 }
+
+// .search__button{
+
+// }
+
+// .reset__button{
+
+// }
+
+.drinks__section{
+    &--list{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+    &--item{
+    width:30%;
+    }
+    
+}
+// .drinks__list{
+//     list-style: none;
+// }
+
+.drink__img{
+    width: 10rem;
+    // &__name{
+
+    // }
+
+}
+.hidden{
+    display: none;
+}
+// .search__warning{
+
+// }
