@@ -21,6 +21,8 @@ let favDrinks = [];
 
 
 
+
+
 //7.Función ara borrar solo la bebida a la que hagamos click de nuestra lista de favs
 
 const deleteFavDrink = (event) => {
@@ -150,6 +152,14 @@ const handleSearch = (event) => {
 };
 
 
+//9.Esta función me vacía el array de favs, el local de favs y la lista renderizada
+
+// const deleteAllFavs = () => {
+//     favDrinks = [];
+//     localStorage.removeItem('favUserDrinks');
+//     favDrinksList.innerHTML = '';
+// }
+// //Falta el addeventlistener sobre la cruz que borra todos los favs, tengo que hacer una sección para los favs, una para las busquedas, debajo de la sección favs meterle el span y ya después darle funcionalidad 
 
 //8.Esta función borra la búsqueda y la lista de la derecha 
 

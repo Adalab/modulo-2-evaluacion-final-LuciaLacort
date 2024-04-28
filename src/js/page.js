@@ -13,7 +13,7 @@ const createFavUl = document.createElement('ul');
 const createUl = document.createElement('ul');
 const searchWarning = document.createElement('p');
 const sectionFav = document.createElement('section');
-// const createLi = document.createElement('li');
+
 
 
 //Despues, una por una, tengo que ir metiendo los atributos que normalmente les pondría en la etiqueta de apertura. Después, tengo que ponerle contenido (si tienen) y decir quien es su madre para que se coloquen dentro:
@@ -63,17 +63,6 @@ section.appendChild(createFavUl);
 createUl.setAttribute('class', 'js-drinks-list');
 createUl.classList.add('drinks__section--list');
 section.appendChild(createUl);
-
-
-
-// createLi.setAttribute('class', 'drinks__item');
-// createLi.setAttribute('class', 'js-drink');
-// createUl.appendChild(createLi);
-
-
-
-
-
 
 
 
