@@ -3,37 +3,55 @@
 .main__page{
     width: 100%;
     background-color: aqua;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     &--title{
-    color: pink;
+    color: purple;
+    font-size: 3rem;
+    padding: 3rem;
     }
-    // &--form{
+    &--form{
+        padding: 0 3rem;
+        gap:1.5rem;
+        font-size: 2rem;
+    }
+    &--search{
+        height: 3rem;
+        width: 20rem;
 
-    // }
-    // &--search{
-
-    // }
+    }
 }
 
-// .search__button{
+.search__button{
+    margin: 2rem;
+    width: 5rem;
+    height: 3rem;
+}
 
-// }
+.reset__button{
+    width: 5rem;
+    height: 3rem;
 
-// .reset__button{
-
-// }
+}
 
 .drinks__section{
     width: 100%;
     display: flex;
     flex-direction: row;
+    padding: 3rem;
+    gap: 1.5rem;
     &--list{
-    width: 100%;
+    width: 25%;
     list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+
     }
     &--item{
         display: flex;
         flex-direction: column;
-        padding: 2rem;
+        padding: 1rem;
     }
     
 }
@@ -49,34 +67,37 @@
 
 }
 
-// // .drink__delete{
-// Esta es la crucecita de eliminar la bebida favorita
-// }
+.drink__delete{
+    font-size: 2rem;
+    color: red;
+}
 
 .favdrinks__section--list{
     height: 100%;
-    background-color: beige;
     list-style: none;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    // &--item{
-    //     background-color: yellow;
-    // }
+    gap: 1.5rem;
+    background-color: beige;
 
 }
 
 .fav-drink{
     background-color: yellow;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
 }
 
 
 .hidden{
     display: none;
 }
-// .search__warning{
-
-// }
+.search__warning{
+    padding-left: 3rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
 
 // .delete__all{
 //     este es el span que borra todos los favs
