@@ -39,7 +39,6 @@ const deleteFavDrink = (event) => {
 };
 
 
-
 //9.Función que me deje borrar todas las fav a la vez
 
 
@@ -166,6 +165,7 @@ const init = () => {
             const margaritaDrinks = dataApi.drinks;
             console.log(margaritaDrinks);
             renderDrinksList(margaritaDrinks);
+            drinks.push(...margaritaDrinks);
         });
 };
 
