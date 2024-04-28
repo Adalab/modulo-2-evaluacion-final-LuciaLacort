@@ -19,6 +19,7 @@ const favDrinksList = document.querySelector('.js-fav-drinks-list');
 let drinks = [];
 let favDrinks = [];
 
+//7.Función ara borrar solo la bebida a la que hagamos click de nuestra lista de favs
 
 const deleteFavDrink = (event) => {
     const clickedDrinkId = event.currentTarget.parentElement.id;
@@ -29,6 +30,8 @@ const deleteFavDrink = (event) => {
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
+//9.Función que me deje borrar todas las fav a la vez
+
 
 //6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Renden para las bebidas fav que responde al click en la cruz para borrarlos
 
@@ -136,11 +139,13 @@ const handleSearch = (event) => {
         getApiData();  //Super importante llamar aquí a get api para que no me de error
     };
 };
+//8.Esta función borra la búsqueda y la lista de la derecha 
 
 const handleReset = (event) => {
     event.preventDefault();
 };
 
+//Función que ejecuta lo que va a ver el usuario cuando refresque la página o vuelva otra vez, la lista de margaritas y sus fav guardados
 
 const init = () => {
     const favUserDrinks = JSON.parse(localStorage.getItem('favUserDrinks'));
@@ -158,7 +163,7 @@ const init = () => {
         });
 };
 
-//Aqui va lo que se tiene que ejecutar cuando el usuario abra la página (algo que me pinte solo los margarita y los botones)
+//Aqui va lo que tiene que estar listo para usar cuando el usuario abra la página (algo que me pinte solo los margarita y los botones)
 
 init();
 searchBtn.addEventListener('click', handleSearch);
