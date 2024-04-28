@@ -38,7 +38,7 @@
     
 }
 // .drinks__list{
-//     list-style: none;
+
 // }
 
 .drink__img{
@@ -60,6 +60,9 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    // &--item{
+    //     background-color: yellow;
+    // }
 
 }
 

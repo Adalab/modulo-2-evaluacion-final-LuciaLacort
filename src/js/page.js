@@ -19,7 +19,7 @@ const searchWarning = document.createElement('p');
 
 
 mainTitle.setAttribute('class', 'main__page--title');
-mainTitle.textContent = `La cocktelería de Lucía`;
+mainTitle.textContent = `Las margaritas de Lucía`;
 mainPage.appendChild(mainTitle);
 
 form.setAttribute('class', 'main__page--form');
