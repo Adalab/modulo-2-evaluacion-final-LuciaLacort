@@ -10,7 +10,7 @@ const resetBtn = document.querySelector('.js-reset-btn');
 const drinksList = document.querySelector('.js-drinks-list');
 const warning = document.querySelector('.js-search-warning');
 const favDrinksList = document.querySelector('.js-fav-drinks-list');
-
+const drinksLi = document.querySelectorAll('.js-drink');
 
 
 
@@ -23,17 +23,27 @@ let favDrinks = [];
 
 const deleteFavDrink = (event) => {
     const clickedDrinkId = event.currentTarget.parentElement.id;
-    const favDrinksIndex = favDrinks.findIndex(
+    const favDrinksIndex = favDrinks.findIndex(  //Saco el índice de los fav clikados
         (drink) => drink.idDrink === clickedDrinkId
     );
+    const drinksListItems = drinksList.querySelectorAll('.js-drinks-list li'); //Me traigo todos los li de la lista
+    drinksListItems.forEach((drinkLi) => {  //Miro a ver si el id del elemento clikado coincide con el id d alguno del array
+        if (drinkLi.id === clickedDrinkId) {
+            drinkLi.classList.remove('fav-drink');  //Si el li que cliko en favs para eliminarlo de favs está en el array de drinks, en este mismo array le quito la clase
+        }
+    });
+    //Se elimina, se rendeirza y se guarda en las favs del local
     favDrinks.splice(favDrinksIndex, 1);
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
+
+
+
 //9.Función que me deje borrar todas las fav a la vez
 
 
-//6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Renden para las bebidas fav que responde al click en la cruz para borrarlos
+//6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Render para las bebidas fav que responde al click en la cruz para borrarlos
 
 const renderFavDrinksList = () => {
 favDrinksList.innerHTML = '';
@@ -62,19 +72,20 @@ const addFavDrink = (event) => {
     console.log(event.currentTarget.id);
     const clickedDrink = event.currentTarget.id;
     const drink = drinks.find((drink) => drink.idDrink === clickedDrink);
-    const favDrinksIndex = favDrinks.findIndex(
-        (drink) => drink.idDrink === clickedDrink
-    );
-    if(favDrinksIndex !== -1){
+    const favDrinksIndex = favDrinks.findIndex((drink) => drink.idDrink === clickedDrink );
+    if(favDrinksIndex !== -1){  //Si la bebida está en favoritos se le añade el span que es la X para borrarla 
         const deleteFavDrink = document.querySelector('.js-delete');
         deleteFavDrink.addEventListener('click', deleteFavDrink);
-        // favDrinks.splice(favDrinksIndex, 1); //Aquí debe quitarse la clase hidden a la crucecita 
     } else {
         //Aquí tengo que hacer que se cambie el color del borde y la fuente para que se note que es un cocktail favorito, y que también se quede pintado en la lista normal
-        favDrinks.push(drink);
+        if(drink && drink.idDrink){
+            event.currentTarget.classList.add('fav-drink');
+            favDrinks.push(drink);
+        }
     }
-        renderFavDrinksList(favDrinks);
-        localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
+
+    renderFavDrinksList(favDrinks);
+    localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
  
 
@@ -86,22 +97,18 @@ const renderDrinksList = (array) => {
         const drinkName = drink.strDrink;
         const drinkImg = drink.strDrinkThumb;
         const drinkId = drink.idDrink;
-
-        drinksList.innerHTML += `
-        <li class="drinks__section--item js-drink" id="${drinkId}">
+        const li = document.createElement('li');
+        li.classList.add('drinks__section--item');
+        li.id = drinkId;
+        li.innerHTML = `
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
             <h3 class="drinks__name">${drinkName}</h3>
-        </li>
         `;
+        li.addEventListener('click', addFavDrink); 
+        createUl.appendChild(li);
     }
-    const drinksLi = document.querySelectorAll('.js-drink');
-    drinksLi.forEach(li => {
-        li.addEventListener('click', addFavDrink);
-    });
-     
+
 };
-
-
 
 //2.Traigo los datos de la api y ya los dejo guardados en local storage
 
@@ -153,7 +160,6 @@ const init = () => {
         favDrinks = favUserDrinks;
         renderFavDrinksList(favDrinks);
     }
-
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
         .then(response => response.json())
         .then((dataApi) => {
