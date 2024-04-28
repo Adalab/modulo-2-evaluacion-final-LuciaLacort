@@ -13,7 +13,9 @@ Además de las margaritas, se hacen otros muchos cocktails, por lo que el usuari
 
 Para no olvidar qué cocktail le había gustado, los puede ir marcando como favoritos: cambiarán su apariencia en la lista original y aparecerán en una nueva lista de favorios a la izquierda. 
 
-Esta lista se guardará en localStorage para que cada vez que nuestros usuarios entren o refresquen la página, sus favs sigan ahí. Por supuesto, si dejan de ser sus favs, cada cocktail cuenta con una cruz que los elimina de la lista al pulsarla, una cruz que borra todos los favoritos y un botón de reset para hacer una nueva búsqueda.
+Esta lista se guardará en localStorage para que cada vez que nuestros usuarios entren o refresquen la página, sus favs sigan ahí. Por supuesto, si dejan de ser sus favs, cada cocktail cuenta con una cruz que los elimina de la lista al pulsarla, una cruz que borra todos los favoritos y un botón de reset para limpiar el campo de búsqueda y hacer una nueva.
+
+
 
 
 
