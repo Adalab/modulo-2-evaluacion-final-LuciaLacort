@@ -14,7 +14,6 @@ const drinksLi = document.querySelectorAll('.js-drink');
 
 
 
-
 //1.Declaro dos variables: la que será el array de bebidas y la que será el array de las bebidas fav
 
 let drinks = [];
@@ -24,20 +23,27 @@ let favDrinks = [];
 
 const deleteFavDrink = (event) => {
     const clickedDrinkId = event.currentTarget.parentElement.id;
-    const favDrinksIndex = favDrinks.findIndex(
+    const favDrinksIndex = favDrinks.findIndex(  //Saco el índice de los fav clikados
         (drink) => drink.idDrink === clickedDrinkId
     );
-    favDrinks.splice(favDrinksIndex, 1);
-    drinksLi.forEach(li => {
-        li.classList.remove('fav-drink');
+    const drinksListItems = drinksList.querySelectorAll('.js-drinks-list li'); //Me traigo todos los li de la lista
+    drinksListItems.forEach((drinkLi) => {  //Miro a ver si el id del elemento clikado coincide con el id d alguno del array
+        if (drinkLi.id === clickedDrinkId) {
+            drinkLi.classList.remove('fav-drink');  //Si el li que cliko en favs para eliminarlo de favs está en el array de drinks, en este mismo array le quito la clase
+        }
     });
+    //Se elimina, se rendeirza y se guarda en las favs del local
+    favDrinks.splice(favDrinksIndex, 1);
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
+
+
+
 //9.Función que me deje borrar todas las fav a la vez
 
 
-//6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Renden para las bebidas fav que responde al click en la cruz para borrarlos
+//6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Render para las bebidas fav que responde al click en la cruz para borrarlos
 
 const renderFavDrinksList = () => {
 favDrinksList.innerHTML = '';
@@ -70,16 +76,16 @@ const addFavDrink = (event) => {
     if(favDrinksIndex !== -1){  //Si la bebida está en favoritos se le añade el span que es la X para borrarla 
         const deleteFavDrink = document.querySelector('.js-delete');
         deleteFavDrink.addEventListener('click', deleteFavDrink);
-        // favDrinks.splice(favDrinksIndex, 1); //Aquí debe quitarse la clase hidden a la crucecita 
     } else {
         //Aquí tengo que hacer que se cambie el color del borde y la fuente para que se note que es un cocktail favorito, y que también se quede pintado en la lista normal
-        if(drink && drink.strDrink){
-            favDrinks.push(drink);
+        if(drink && drink.idDrink){
             event.currentTarget.classList.add('fav-drink');
+            favDrinks.push(drink);
         }
     }
-        renderFavDrinksList(favDrinks);
-        localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
+
+    renderFavDrinksList(favDrinks);
+    localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
  
 
@@ -98,9 +104,10 @@ const renderDrinksList = (array) => {
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
             <h3 class="drinks__name">${drinkName}</h3>
         `;
-        li.addEventListener('click', addFavDrink); // Asignar el evento click aquí
+        li.addEventListener('click', addFavDrink); 
         createUl.appendChild(li);
     }
+
 };
 
 //2.Traigo los datos de la api y ya los dejo guardados en local storage
@@ -153,7 +160,6 @@ const init = () => {
         favDrinks = favUserDrinks;
         renderFavDrinksList(favDrinks);
     }
-
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
         .then(response => response.json())
         .then((dataApi) => {
