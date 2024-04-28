@@ -155,7 +155,11 @@ const handleSearch = (event) => {
 
 const handleReset = (event) => {
     event.preventDefault();
+    searchField.value = ''; 
+    drinks = [];
+    drinksList.innerHTML = ''; 
 };
+
 
 
 //Función que ejecuta lo que va a ver el usuario cuando refresque la página o vuelva otra vez, la lista de margaritas y sus fav guardados

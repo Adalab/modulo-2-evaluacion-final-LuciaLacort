@@ -58,7 +58,7 @@ mainPage.appendChild(section);
 
 createFavUl.setAttribute('class', 'js-fav-drinks-list');
 createFavUl.classList.add('favdrinks__section--list');
-sectionFav.appendChild(createFavUl);
+section.appendChild(createFavUl);
 
 createUl.setAttribute('class', 'js-drinks-list');
 createUl.classList.add('drinks__section--list');
