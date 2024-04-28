@@ -2,7 +2,7 @@ console.log('functions ready');
 
 //En esta página voy  a hacer solo las funcionalidades de JS 
 
-//1º Traer del html lo que necesite, en este caso me tengo que fijar en las clases que he puesto con set atribute
+//Basic: Traer del html lo que necesite, en este caso me tengo que fijar en las clases que he puesto con set atribute
 
 const searchBtn = document.querySelector('.js-search-btn');
 const searchField = document.querySelector('.js-search-input');
@@ -11,7 +11,6 @@ const drinksList = document.querySelector('.js-drinks-list');
 const warning = document.querySelector('.js-search-warning');
 const favDrinksList = document.querySelector('.js-fav-drinks-list');
 const drinksLi = document.querySelectorAll('.js-drink');
-
 
 
 //1.Declaro dos variables: la que será el array de bebidas y la que será el array de las bebidas fav
@@ -39,7 +38,7 @@ const deleteFavDrink = (event) => {
 };
 
 
-//9.Función que me deje borrar todas las fav a la vez
+//10.Función que me deje borrar todas las fav a la vez
 
 
 //6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Render para las bebidas fav que responde al click en la cruz para borrarlos
@@ -105,7 +104,6 @@ const renderDrinksList = (array) => {
         if (favDrinks.some((favDrink) => favDrink.idDrink === drinkId)) {
             li.classList.add('fav-drink');
         }
-
         li.innerHTML = `
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
             <h3 class="drinks__name">${drinkName}</h3>
@@ -113,7 +111,6 @@ const renderDrinksList = (array) => {
         li.addEventListener('click', addFavDrink); 
         createUl.appendChild(li);
     }
-
 };
 
 //2.Traigo los datos de la api y ya los dejo guardados en local storage
@@ -152,7 +149,13 @@ const handleSearch = (event) => {
         getApiData();  //Super importante llamar aquí a get api para que no me de error
     };
 };
-//8.Esta función borra la búsqueda y la lista de la derecha 
+
+//8.Función para desmarcar como fav desde la lista de la derecha 
+
+
+
+
+//9.Esta función borra la búsqueda y la lista de la derecha 
 
 const handleReset = (event) => {
     event.preventDefault();
@@ -181,5 +184,6 @@ const init = () => {
 init();
 searchBtn.addEventListener('click', handleSearch);
 resetBtn.addEventListener('click', handleReset);
+
 
 
