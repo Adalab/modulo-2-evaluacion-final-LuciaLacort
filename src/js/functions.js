@@ -94,11 +94,18 @@ const renderDrinksList = (array) => {
     drinksList.innerHTML = '';
     for (const drink of array){
         const drinkName = drink.strDrink;
-        const drinkImg = drink.strDrinkThumb;
+        let drinkImg = drink.strDrinkThumb;
+        if (!drinkImg) {
+            drinkImg = 'http://via.placeholder.com/100x100';
+        }
         const drinkId = drink.idDrink;
         const li = document.createElement('li');
         li.classList.add('drinks__section--item');
         li.id = drinkId;
+        if (favDrinks.some((favDrink) => favDrink.idDrink === drinkId)) {
+            li.classList.add('fav-drink');
+        }
+
         li.innerHTML = `
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
             <h3 class="drinks__name">${drinkName}</h3>

@@ -5,7 +5,7 @@
 
 ¡Bienvenidos a "Las margaritas de Lucía"!
 
-Esta página web es de una cocktelería que no existe (todavía) cuya especialidad son los margaritas.
+Esta es la web de una cocktelería que no existe (todavía) cuya especialidad son los margaritas.
 
 Es una web dinámica en la que lo primero que se encuentra el usuario es la carta de margaritas, ya que son la especialidad de la casa.
 
