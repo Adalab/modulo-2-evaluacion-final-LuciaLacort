@@ -10,6 +10,7 @@ const resetBtn = document.querySelector('.js-reset-btn');
 const drinksList = document.querySelector('.js-drinks-list');
 const warning = document.querySelector('.js-search-warning');
 const favDrinksList = document.querySelector('.js-fav-drinks-list');
+const drinksLi = document.querySelectorAll('.js-drink');
 
 
 
@@ -27,6 +28,9 @@ const deleteFavDrink = (event) => {
         (drink) => drink.idDrink === clickedDrinkId
     );
     favDrinks.splice(favDrinksIndex, 1);
+    drinksLi.forEach(li => {
+        li.classList.remove('fav-drink');
+    });
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
@@ -62,16 +66,17 @@ const addFavDrink = (event) => {
     console.log(event.currentTarget.id);
     const clickedDrink = event.currentTarget.id;
     const drink = drinks.find((drink) => drink.idDrink === clickedDrink);
-    const favDrinksIndex = favDrinks.findIndex(
-        (drink) => drink.idDrink === clickedDrink
-    );
-    if(favDrinksIndex !== -1){
+    const favDrinksIndex = favDrinks.findIndex((drink) => drink.idDrink === clickedDrink );
+    if(favDrinksIndex !== -1){  //Si la bebida está en favoritos se le añade el span que es la X para borrarla 
         const deleteFavDrink = document.querySelector('.js-delete');
         deleteFavDrink.addEventListener('click', deleteFavDrink);
         // favDrinks.splice(favDrinksIndex, 1); //Aquí debe quitarse la clase hidden a la crucecita 
     } else {
         //Aquí tengo que hacer que se cambie el color del borde y la fuente para que se note que es un cocktail favorito, y que también se quede pintado en la lista normal
-        favDrinks.push(drink);
+        if(drink && drink.strDrink){
+            favDrinks.push(drink);
+            event.currentTarget.classList.add('fav-drink');
+        }
     }
         renderFavDrinksList(favDrinks);
         localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
@@ -86,22 +91,17 @@ const renderDrinksList = (array) => {
         const drinkName = drink.strDrink;
         const drinkImg = drink.strDrinkThumb;
         const drinkId = drink.idDrink;
-
-        drinksList.innerHTML += `
-        <li class="drinks__section--item js-drink" id="${drinkId}">
+        const li = document.createElement('li');
+        li.classList.add('drinks__section--item');
+        li.id = drinkId;
+        li.innerHTML = `
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
             <h3 class="drinks__name">${drinkName}</h3>
-        </li>
         `;
+        li.addEventListener('click', addFavDrink); // Asignar el evento click aquí
+        createUl.appendChild(li);
     }
-    const drinksLi = document.querySelectorAll('.js-drink');
-    drinksLi.forEach(li => {
-        li.addEventListener('click', addFavDrink);
-    });
-     
 };
-
-
 
 //2.Traigo los datos de la api y ya los dejo guardados en local storage
 
