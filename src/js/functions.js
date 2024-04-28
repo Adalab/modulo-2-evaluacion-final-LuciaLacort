@@ -1,6 +1,6 @@
 console.log('functions ready');
 
-//En esta página voy  a hacer solo las funcionalidades de JS 
+//En esta página voy a hacer solo las funcionalidades de JS 
 
 //Basic: Traer del html lo que necesite, en este caso me tengo que fijar en las clases que he puesto con set atribute
 
@@ -13,10 +13,13 @@ const favDrinksList = document.querySelector('.js-fav-drinks-list');
 const drinksLi = document.querySelectorAll('.js-drink');
 
 
+
 //1.Declaro dos variables: la que será el array de bebidas y la que será el array de las bebidas fav
 
 let drinks = [];
 let favDrinks = [];
+
+
 
 //7.Función ara borrar solo la bebida a la que hagamos click de nuestra lista de favs
 
@@ -36,9 +39,6 @@ const deleteFavDrink = (event) => {
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
-
-
-//10.Función que me deje borrar todas las fav a la vez
 
 
 //6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Render para las bebidas fav que responde al click en la cruz para borrarlos
@@ -74,14 +74,14 @@ const addFavDrink = (event) => {
     if(favDrinksIndex !== -1){  //Si la bebida está en favoritos se le añade el span que es la X para borrarla 
         const deleteFavDrink = document.querySelector('.js-delete');
         deleteFavDrink.addEventListener('click', deleteFavDrink);
+        favDrinks.splice(favDrinksIndex, 1);
+        event.currentTarget.classList.remove('fav-drink');
     } else {
-        //Aquí tengo que hacer que se cambie el color del borde y la fuente para que se note que es un cocktail favorito, y que también se quede pintado en la lista normal
         if(drink && drink.idDrink){
             event.currentTarget.classList.add('fav-drink');
             favDrinks.push(drink);
         }
     }
-
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
 };
@@ -116,7 +116,6 @@ const renderDrinksList = (array) => {
 //2.Traigo los datos de la api y ya los dejo guardados en local storage
 
 const getApiData = () => {
-
     const searchWord = searchField.value;
     fetch (
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchWord}`
@@ -150,16 +149,14 @@ const handleSearch = (event) => {
     };
 };
 
-//8.Función para desmarcar como fav desde la lista de la derecha 
 
 
-
-
-//9.Esta función borra la búsqueda y la lista de la derecha 
+//8.Esta función borra la búsqueda y la lista de la derecha 
 
 const handleReset = (event) => {
     event.preventDefault();
 };
+
 
 //Función que ejecuta lo que va a ver el usuario cuando refresque la página o vuelva otra vez, la lista de margaritas y sus fav guardados
 
@@ -168,6 +165,8 @@ const init = () => {
     if(favUserDrinks !== null){
         favDrinks = favUserDrinks;
         renderFavDrinksList(favDrinks);
+       
+
     }
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
         .then(response => response.json())
@@ -184,6 +183,5 @@ const init = () => {
 init();
 searchBtn.addEventListener('click', handleSearch);
 resetBtn.addEventListener('click', handleReset);
-
 
 

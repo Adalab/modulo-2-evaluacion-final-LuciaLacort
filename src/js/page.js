@@ -12,6 +12,7 @@ const section = document.createElement('section');
 const createFavUl = document.createElement('ul');
 const createUl = document.createElement('ul');
 const searchWarning = document.createElement('p');
+const sectionFav = document.createElement('section');
 // const createLi = document.createElement('li');
 
 
@@ -51,14 +52,13 @@ searchWarning.classList.add('hidden');
 
 mainPage.appendChild(searchWarning);
 
-
 section.setAttribute('class', 'js-section');
 section.classList.add('drinks__section');
 mainPage.appendChild(section);
 
 createFavUl.setAttribute('class', 'js-fav-drinks-list');
 createFavUl.classList.add('favdrinks__section--list');
-section.appendChild(createFavUl);
+sectionFav.appendChild(createFavUl);
 
 createUl.setAttribute('class', 'js-drinks-list');
 createUl.classList.add('drinks__section--list');
