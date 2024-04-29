@@ -1,4 +1,5 @@
 //Para no perderme en la anidación, voy a meter las clases para dar estilos según las voy creando con set atribute y las dejo comentadas. Así si las necesito luego no las tengo que volver a buscar.
+
 body{
     width: 100%;
 }
@@ -46,7 +47,6 @@ body{
     color: black;
     background-color: palegoldenrod;
     font-weight: 700;
-
     @media (min-width:768px){
         margin-left: 3rem;
         height: 4rem;
@@ -63,12 +63,22 @@ body{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 2%;
     background-color: white;
-
     @media (min-width:768px){
         height: 4rem;
     }
 }
-
+.search__warning{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border: 1px solid purple;
+    border-radius: 2%;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
 .order__sections{
     display: grid;
     grid-template-columns:1fr 1fr;
@@ -141,10 +151,6 @@ body{
     padding-top: 1rem;
     font-size: 1rem;
     width: 6rem;
-    // &::first-line {
-    //     word-spacing:;
-    //   }
-
 }
 
 .delete__all{
@@ -181,30 +187,17 @@ body{
     // grid-template-columns: 1fr;
     // grid-template-rows: auto;
     gap: 1.5rem;
-
-
-
 }
+
 .fav-drink{
     background-color: lightgoldenrodyellow;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: grey;
 }
+
 .hidden{
     display: none;
 }
-.search__warning{
-    margin-left: 3rem;
-    margin-right: 3rem;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    border: 1px solid purple;
-    border-radius: 2%;
-    background-color: aliceblue;
-    padding: 0.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
 
-}
 
 

@@ -153,8 +153,6 @@ const handleSearch = (event) => {
 };
 
 
-
-
 //9.Esta función me vacía el array de favs, el local de favs y la lista renderizada, y me quita la clase que modifica los favs pero en la lista de drinks
 
 const deleteAllFavDrinks = (event) => {
