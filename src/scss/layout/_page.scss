@@ -2,8 +2,10 @@
 
 .main__page{
     width: 100%;
-    background-color: aqua;
+    height: 100%;
+    background-color: rgb(196, 207, 237);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 4rem;
     &--title{
     color: purple;
     font-size: 3rem;
@@ -16,31 +18,31 @@
     }
     &--search{
         height: 3rem;
-        width: 20rem;
-
+        width: 21rem;
+        margin-bottom: 1.5rem;
     }
 }
 
 .search__button{
-    margin: 2rem;
     width: 5rem;
     height: 3rem;
+    @media (min-width:768px){
+        margin-left: 1rem;
+    }
+   
 }
 
 .reset__button{
     width: 5rem;
     height: 3rem;
-
+    margin-left: 2rem;
 }
 
 .drinks__section{
-    width: 100%;
     display: flex;
-    flex-direction: row;
     padding: 3rem;
     gap: 1.5rem;
     &--list{
-    width: 25%;
     list-style: none;
     display: grid;
     grid-template-columns: 1fr;
@@ -60,7 +62,7 @@
 // }
 
 .drink__img{
-    width: 10rem;
+    width: 5rem;
     // &__name{
 
     // }
@@ -74,13 +76,13 @@
 
 .favdrinks__section--list{
     height: 100%;
+    width: 40%;
     list-style: none;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 1.5rem;
     background-color: beige;
-
 }
 
 .fav-drink{
@@ -89,14 +91,21 @@
     color: grey;
 }
 
-
 .hidden{
     display: none;
 }
 .search__warning{
-    padding-left: 3rem;
-    font-size: 1.2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    font-size: 0.8rem;
     line-height: 1.5;
+    border: 1px solid purple;
+    border-radius: 2%;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
 }
 
 // .delete__all{
