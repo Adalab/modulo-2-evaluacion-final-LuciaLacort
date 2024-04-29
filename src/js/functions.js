@@ -79,6 +79,7 @@ const addFavDrink = (event) => {
         deleteFavDrink.addEventListener('click', deleteFavDrink);
         favDrinks.splice(favDrinksIndex, 1);
         event.currentTarget.classList.remove('fav-drink');
+       
     } else {
         if(drink && drink.idDrink){
             event.currentTarget.classList.add('fav-drink');
@@ -87,6 +88,11 @@ const addFavDrink = (event) => {
     }
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
+    if (favDrinks.length === 0) {
+        deleteAllFavsBtn.classList.add('hidden');
+    } else {
+        deleteAllFavsBtn.classList.remove('hidden');
+    }
 };
  
 
