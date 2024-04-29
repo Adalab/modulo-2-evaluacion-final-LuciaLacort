@@ -56,7 +56,7 @@ const renderFavDrinksList = () => {
             <li class="drinks__section--item js-drink" id="${drinkId}">
                 <span class="drink__delete js-delete"><i class="fas fa-times"></i></span>
                 <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
-                <h3 class="drinks__name">${drinkName}</h3>
+                <h3 class="drink__name">${drinkName}</h3>
             </li>
         `;
         }
@@ -109,7 +109,7 @@ const renderDrinksList = (array) => {
         }
         li.innerHTML = `
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
-            <h3 class="drinks__name">${drinkName}</h3>
+            <h3 class="drink__name">${drinkName}</h3>
         `;
         li.addEventListener('click', addFavDrink); 
         createUl.appendChild(li);
