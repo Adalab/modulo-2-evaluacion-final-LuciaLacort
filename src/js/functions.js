@@ -64,6 +64,9 @@ const renderFavDrinksList = () => {
         deleteCross.forEach(cross => {
             cross.addEventListener('click', deleteFavDrink);
         });
+        if (favDrinks.length === 0) {
+            deleteAllFavsBtn.classList.add('hidden');
+        }
 };
 
 
@@ -90,8 +93,6 @@ const addFavDrink = (event) => {
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
     if (favDrinks.length === 0) {
         deleteAllFavsBtn.classList.add('hidden');
-    } else {
-        deleteAllFavsBtn.classList.remove('hidden');
     }
 };
  
