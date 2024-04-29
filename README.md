@@ -7,7 +7,7 @@
 
 Esta es la web de una cocktelería que no existe (todavía) cuya especialidad son los margaritas.
 
-Es una web dinámica en la que lo primero que se encuentra el usuario es la carta de margaritas, ya que son la especialidad de la casa.
+Es una web dinámica en la que lo primero que se encuentra el usuario es la carta de margaritas, ya que son la especialidad de la casa, y si ya la tuviese hecha, la lista de los cocktails que marcó como favoritos en su última visita.
 
 Además de las margaritas, se hacen otros muchos cocktails, por lo que el usuario puede buscar dentro de la extensa carta, por ejemplo, "mojito" y ver los mojitos que se ofrecen.
 

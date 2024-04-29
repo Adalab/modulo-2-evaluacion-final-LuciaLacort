@@ -170,8 +170,6 @@ const handleReset = (event) => {
     drinksList.innerHTML = ''; 
 };
 
-
-
 //Función que ejecuta lo que va a ver el usuario cuando refresque la página o vuelva otra vez, la lista de margaritas y sus fav guardados
 
 const init = () => {
@@ -179,8 +177,6 @@ const init = () => {
     if(favUserDrinks !== null){
         favDrinks = favUserDrinks;
         renderFavDrinksList(favDrinks);
-       
-
     }
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
         .then(response => response.json())
