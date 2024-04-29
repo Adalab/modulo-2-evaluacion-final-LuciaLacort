@@ -11,17 +11,14 @@ const drinksList = document.querySelector('.js-drinks-list');
 const warning = document.querySelector('.js-search-warning');
 const favDrinksList = document.querySelector('.js-fav-drinks-list');
 const drinksLi = document.querySelectorAll('.js-drink');
+const deleteAllFavsBtn = document.querySelector('.js-delete-all-favs');
 
-
+deleteAllFavsBtn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>Borrar todos mis favoritos';
 
 //1.Declaro dos variables: la que será el array de bebidas y la que será el array de las bebidas fav
 
 let drinks = [];
 let favDrinks = [];
-
-
-
-
 
 //7.Función ara borrar solo la bebida a la que hagamos click de nuestra lista de favs
 
@@ -46,23 +43,24 @@ const deleteFavDrink = (event) => {
 //6.He intentado renderizar los favoritos con el mismo render de las otras bebidas pero me lia y queda un código muy raro. Render para las bebidas fav que responde al click en la cruz para borrarlos
 
 const renderFavDrinksList = () => {
-favDrinksList.innerHTML = '';
-for (const drink of favDrinks){
-    const drinkName = drink.strDrink;
-    const drinkImg = drink.strDrinkThumb;
-    const drinkId = drink.idDrink;
-    favDrinksList.innerHTML += `
-        <li class="drinks__section--item js-drink" id="${drinkId}">
-            <span class="drink__delete js-delete"><i class="fas fa-times"></i></span>
-            <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
-            <h3 class="drinks__name">${drinkName}</h3>
-        </li>
-    `;
-    }
-    const deleteCross = document.querySelectorAll('.js-delete');
-    deleteCross.forEach(cross => {
-        cross.addEventListener('click', deleteFavDrink);
-    });
+    deleteAllFavsBtn.classList.remove('hidden');
+    favDrinksList.innerHTML = '';
+    for (const drink of favDrinks){
+        const drinkName = drink.strDrink;
+        const drinkImg = drink.strDrinkThumb;
+        const drinkId = drink.idDrink;
+        favDrinksList.innerHTML += `
+            <li class="drinks__section--item js-drink" id="${drinkId}">
+                <span class="drink__delete js-delete"><i class="fas fa-times"></i></span>
+                <img class="drink__img" src="${drinkImg}" alt="${drinkName}">
+                <h3 class="drinks__name">${drinkName}</h3>
+            </li>
+        `;
+        }
+        const deleteCross = document.querySelectorAll('.js-delete');
+        deleteCross.forEach(cross => {
+            cross.addEventListener('click', deleteFavDrink);
+        });
 };
 
 
@@ -152,25 +150,29 @@ const handleSearch = (event) => {
 };
 
 
-//9.Esta función me vacía el array de favs, el local de favs y la lista renderizada
 
-// const deleteAllFavs = () => {
-//     favDrinks = [];
-//     localStorage.removeItem('favUserDrinks');
-//     favDrinksList.innerHTML = '';
-// }
-// //Falta el addeventlistener sobre la cruz que borra todos los favs, tengo que hacer una sección para los favs, una para las busquedas, debajo de la sección favs meterle el span y ya después darle funcionalidad 
 
-//8.Esta función borra la búsqueda y la lista de la derecha 
+//9.Esta función me vacía el array de favs, el local de favs y la lista renderizada, y me quita la clase que modifica los favs pero en la lista de drinks
 
-const handleReset = (event) => {
+const deleteAllFavDrinks = (event) => {
     event.preventDefault();
-    searchField.value = ''; 
-    drinks = [];
-    drinksList.innerHTML = ''; 
-};
+    favDrinks = [];
+    localStorage.removeItem('favUserDrinks');
+    favDrinksList.innerHTML = '';
+    if(favDrinks.length === 0){
+        deleteAllFavsBtn.classList.add('hidden');
+    }
+    const drinksListItems = drinksList.querySelectorAll('.js-drinks-list li'); 
+    drinksListItems.forEach((drinkLi) => {
+        drinkLi.classList.remove('fav-drink');
+    });
+    
+}
 
-//Función que ejecuta lo que va a ver el usuario cuando refresque la página o vuelva otra vez, la lista de margaritas y sus fav guardados
+deleteAllFavsBtn.addEventListener('click', deleteAllFavDrinks);
+
+
+//Basic: función que ejecuta lo que va a ver el usuario cuando refresque la página o vuelva otra vez, que son sus favs guardados
 
 const init = () => {
     const favUserDrinks = JSON.parse(localStorage.getItem('favUserDrinks'));
@@ -179,16 +181,27 @@ const init = () => {
         renderFavDrinksList(favDrinks);
     }
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-        .then(response => response.json())
-        .then((dataApi) => {
-            const margaritaDrinks = dataApi.drinks;
-            console.log(margaritaDrinks);
-            renderDrinksList(margaritaDrinks);
-            drinks.push(...margaritaDrinks);
-        });
+    .then(response => response.json())
+    .then((dataApi) => {
+        const margaritaDrinks = dataApi.drinks;
+        console.log(margaritaDrinks);
+        renderDrinksList(margaritaDrinks);
+        drinks.push(...margaritaDrinks);
+    });
+
 };
 
-//Aqui va lo que tiene que estar listo para usar cuando el usuario abra la página (algo que me pinte solo los margarita y los botones)
+//8.Esta función borra la búsqueda y la lista de la derecha 
+
+const handleReset = (event) => {
+    event.preventDefault();
+    searchField.value = ''; 
+    drinks = [];
+    drinksList.innerHTML = ''; 
+    init();
+};
+
+//Basic: aqui va lo que tiene que estar listo para usar cuando el usuario abra la página 
 
 init();
 searchBtn.addEventListener('click', handleSearch);

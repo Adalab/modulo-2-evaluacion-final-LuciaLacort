@@ -13,7 +13,10 @@ const createFavUl = document.createElement('ul');
 const createUl = document.createElement('ul');
 const searchWarning = document.createElement('p');
 const sectionFav = document.createElement('section');
-
+const orderSections = document.createElement('div');
+const deleteAllFavs = document.createElement('p');
+const showDrinksList = document.createElement('p');
+const showFavList = document.createElement('p');
 
 
 //Despues, una por una, tengo que ir metiendo los atributos que normalmente les pondría en la etiqueta de apertura. Después, tengo que ponerle contenido (si tienen) y decir quien es su madre para que se coloquen dentro:
@@ -52,13 +55,35 @@ searchWarning.classList.add('hidden');
 
 mainPage.appendChild(searchWarning);
 
-section.setAttribute('class', 'js-section');
-section.classList.add('drinks__section');
-mainPage.appendChild(section);
+orderSections.setAttribute('class', 'order__sections');
+mainPage.appendChild(orderSections);
+
+sectionFav.setAttribute('class', 'js-section-fav');
+sectionFav.classList.add('favdrinks__section');
+orderSections.appendChild(sectionFav);
+
+showFavList.setAttribute('class', 'drinks__title');
+showFavList.classList.add('js-show-fav-drinks');
+showFavList.textContent = 'Tus favoritos';
+sectionFav.appendChild(showFavList);
+
+deleteAllFavs.setAttribute('class', 'delete__all');
+deleteAllFavs.classList.add('js-delete-all-favs')
+deleteAllFavs.classList.add('hidden');
+sectionFav.appendChild(deleteAllFavs);
 
 createFavUl.setAttribute('class', 'js-fav-drinks-list');
 createFavUl.classList.add('favdrinks__section--list');
-section.appendChild(createFavUl);
+sectionFav.appendChild(createFavUl);
+
+section.setAttribute('class', 'js-section');
+section.classList.add('drinks__section');
+orderSections.appendChild(section);
+
+showDrinksList.setAttribute('class', 'drinks__title');
+showDrinksList.classList.add('js-show-drinks');
+showDrinksList.textContent = 'Nuestro jardín';
+section.appendChild(showDrinksList);
 
 createUl.setAttribute('class', 'js-drinks-list');
 createUl.classList.add('drinks__section--list');

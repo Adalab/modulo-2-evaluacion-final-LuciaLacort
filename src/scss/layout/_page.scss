@@ -12,7 +12,7 @@
     padding: 3rem;
     }
     &--form{
-        padding: 0 3rem;
+        padding: 0 2rem;
         gap:1.5rem;
         font-size: 2rem;
     }
@@ -26,6 +26,7 @@
 .search__button{
     width: 5rem;
     height: 3rem;
+    margin-bottom:1rem;
     @media (min-width:768px){
         margin-left: 1rem;
     }
@@ -36,19 +37,28 @@
     width: 5rem;
     height: 3rem;
     margin-left: 2rem;
+    margin-bottom:1rem;
+}
+
+.order__sections{
+    // display: flex;
+    // flex-direction: column;
+    display: grid;
+    grid-template-rows:auto;
+
 }
 
 .drinks__section{
     display: flex;
-    padding: 3rem;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
     gap: 1.5rem;
+    border: 1px solid blue;
+    padding: 1rem;
     &--list{
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 1.5rem;
-
     }
     &--item{
         display: flex;
@@ -57,9 +67,11 @@
     }
     
 }
-// .drinks__list{
+.drinks__title{
+    font-size: 1.3rem;
+    color: purple;
+    border-bottom: 1px solid blue;}
 
-// }
 
 .drink__img{
     width: 5rem;
@@ -69,28 +81,47 @@
 
 }
 
+.delete__all{
+    font-size: 1rem;
+    color: red;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    line-height: 1.5;
+    text-align: left;
+}
+.fa-circle-xmark{
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
 .drink__delete{
     font-size: 2rem;
     color: red;
 }
 
-.favdrinks__section--list{
-    height: 100%;
-    width: 40%;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 1.5rem;
-    background-color: beige;
+.favdrinks__section{
+    border: 1px solid blue;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: white;
 }
+.favdrinks__section--list{
+    list-style: none;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: auto;
+    gap: 1.5rem;
+ 
+    margin-right: 1rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
 
+}
 .fav-drink{
-    background-color: yellow;
+    background-color: lightgoldenrodyellow;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: grey;
 }
-
 .hidden{
     display: none;
 }
@@ -108,7 +139,4 @@
 
 }
 
-// .delete__all{
-//     este es el span que borra todos los favs
-// }
 
