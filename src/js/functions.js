@@ -37,6 +37,9 @@ const deleteFavDrink = (event) => {
     favDrinks.splice(favDrinksIndex, 1);
     renderFavDrinksList(favDrinks);
     localStorage.setItem('favUserDrinks', JSON.stringify(favDrinks));
+    if (favDrinks.length === 0) {
+        deleteAllFavsBtn.classList.add('hidden');
+    }
 };
 
 
