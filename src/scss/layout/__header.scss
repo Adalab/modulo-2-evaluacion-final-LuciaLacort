@@ -8,12 +8,9 @@
     opacity: .6;
     text-align: center;
     padding-top: 1.5rem;
-
-}
-
-.header__link{
-    text-decoration: none;
+    &__link{
+        text-decoration: none;
     color:#ee3f82;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    }
 }

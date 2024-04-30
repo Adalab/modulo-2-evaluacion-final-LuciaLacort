@@ -7,9 +7,9 @@ body{
     width: 100%;
     height: 100%;
     background-color: #e8e5de;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-bottom: 4rem;
     align-items: center;
+    font-family: "Space Grotesk", sans-serif;
     @media (min-width:768px){
         width: 100%;
      }
@@ -19,6 +19,7 @@ body{
     padding-top: 6rem;
     padding-left: 3rem;
     margin-bottom: 3rem;
+    font-family: "Space Grotesk", sans-serif;
     @media (min-width:768px){
         font-size: 5rem;
         padding-top: 10rem;
@@ -36,20 +37,21 @@ body{
         height: 3rem;
         width: 17rem;
         margin-bottom: 1.5rem;
-  
         border: 2px solid#ee3f82;
-        border-radius: 2%;
+        border-radius: 1rem;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+
         @media (min-width:768px){
            width: 25rem;
            height: 4rem;
         }
+        &::placeholder{
+            font-size: 1rem;
+            padding-left: 1rem;
+        }
     }
 }
 
-::placeholder{
-    font-size: 1rem;
-    padding-left: 1rem;
-}
 
 .search__button{
     width: 5rem;
@@ -62,10 +64,12 @@ body{
     color: #e8e5de;
     background-color: #3ea8a2;
     font-weight: 700;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+
     @media (min-width:768px){
         margin-left: 3rem;
         height: 4rem;
-
     }
 }
 
@@ -74,10 +78,14 @@ body{
     height: 3rem;
     margin-left: 2.6rem;
     margin-bottom:1rem;
+    color:  #3ea8a2;
     border: 2px solid #ee3f82;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 2%;
     background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+
     @media (min-width:768px){
         height: 4rem;
     }
@@ -93,6 +101,9 @@ body{
     padding: 0.5rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+    opacity: 0.7;
+
 }
 .order__sections{
     display: grid;
@@ -104,7 +115,6 @@ body{
     }
 
 }
-
 .drinks__section{
     max-height: 75vh;
     display: flex;
@@ -116,6 +126,7 @@ body{
     padding: 1rem;
     overflow-y: scroll;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9); 
+    border-radius: 1rem;
     &--list{
     list-style: none;
     display: flex;
@@ -157,7 +168,6 @@ body{
     }
 }
 
-
 .drink__img{
     width: 4rem;
     border: 2px solid #523242;
@@ -176,8 +186,6 @@ body{
     padding-top: 1rem;
     font-size: 1rem;
     width: 6rem;
-
-
 }
 
 .delete__all{
@@ -191,13 +199,11 @@ body{
     margin-right: 0.5rem;
     font-size: 1.5rem;
 }
-
 .drink__delete{
     font-size: 2rem;
     color:#ee3f82;
     width: 2rem;
 }
-
 .favdrinks__section{
     max-height: 75vh;
     border: 3px solid #523242;
@@ -209,21 +215,19 @@ body{
     align-items: center;
     overflow-y: scroll;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
-
+    border-radius: 1rem;
 }
 
 .favdrinks__section--list{
     list-style: none;
     gap: 1.5rem;
 }
-
-.fav-drink{
+.fav__drink{
     background-color: lightgoldenrodyellow;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ee3f82;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
 }
-
 .hidden{
     display: none;
 }
