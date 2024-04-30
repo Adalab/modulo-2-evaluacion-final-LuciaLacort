@@ -1,7 +1,6 @@
 console.log('pages ready');
 
-//Tengo que crear el html desde aquí, entonces primero voy a decir las etiquetas que quiero crear:
-
+//Quiero crear el html desde aquí, entonces primero voy a decir las etiquetas que quiero crear:
 const mainPage = document.querySelector('.js-page');
 const mainTitle = document.createElement('h1');
 const form = document.createElement('form');
