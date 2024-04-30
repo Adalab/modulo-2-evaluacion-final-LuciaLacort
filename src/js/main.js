@@ -114,7 +114,7 @@ const renderDrinksList = (array) => {
         li.classList.add('drinks__section--item');
         li.id = drinkId;
         if (favDrinks.some((favDrink) => favDrink.idDrink === drinkId)) {
-            li.classList.add('fav-drink');
+            li.classList.add('fav__drink');
         }
         li.innerHTML = `
             <img class="drink__img" src="${drinkImg}" alt="${drinkName}">

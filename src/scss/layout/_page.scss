@@ -6,7 +6,9 @@ body{
 .main__page{
     width: 100%;
     height: 100%;
-    background-color: #e8e5de;
+    background-image: url('../images/planta.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
     padding-bottom: 4rem;
     align-items: center;
     font-family: "Space Grotesk", sans-serif;
@@ -14,12 +16,13 @@ body{
         width: 100%;
      }
     &--title{
-    color:#ee3f82;
+    color:#e8e5de;
     font-size: 3rem;
     padding-top: 6rem;
     padding-left: 3rem;
     margin-bottom: 3rem;
     font-family: "Space Grotesk", sans-serif;
+    -webkit-text-stroke: 2px black;
     @media (min-width:768px){
         font-size: 5rem;
         padding-top: 10rem;
@@ -51,7 +54,6 @@ body{
         }
     }
 }
-
 
 .search__button{
     width: 5rem;
@@ -127,6 +129,7 @@ body{
     overflow-y: scroll;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9); 
     border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
     &--list{
     list-style: none;
     display: flex;
@@ -160,17 +163,29 @@ body{
 .drinks__title{
     font-size: 1rem;
     font-weight: 700;
-    color: #25736c;
+    color:  #3ea8a2;
     border-bottom: 1px solid #523242;
     padding-bottom: 1rem;
     @media (min-width: 768px){
         font-size: 2rem;
     }
 }
+.drinks__title--drk{
+    font-size: 1rem;
+    font-weight: 700;
+    color:   #e8e5de;
+    border-bottom: 1px solid #523242;
+    padding-bottom: 1rem;
+    @media (min-width: 768px){
+        font-size: 2rem;
+    }
+
+}
 
 .drink__img{
     width: 4rem;
     border: 2px solid #523242;
+    border-radius: 1rem;
     @media (min-width: 768px){
         width: 9rem;
     }
@@ -227,6 +242,7 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ee3f82;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+    border-radius: 1rem;
 }
 .hidden{
     display: none;
